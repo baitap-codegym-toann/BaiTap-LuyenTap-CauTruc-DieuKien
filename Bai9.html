@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai9</title>
+</head>
+<body>
+<script>
+    let abc = prompt("nhập a,b,c ", "0,0,0").split(",");
+    let a = Number(abc[0]);
+    let b = Number(abc[1]);
+    let c = Number(abc[2]);
+    let tamgiac = false;
+
+    if (a > 0 && b > 0 && c > 0) {
+        if (a + b > c) {
+            if (b + c > a) {
+                if (a + c > b) {
+                    tamgiac = true;
+                }
+            }
+        }
+    }
+    if (tamgiac) {
+        alert("đúng là 3 canh của tam giác");
+    } else {
+        alert("không phải 3 cạnh của tam giác");
+    }
+
+
+</script>
+</body>
+</html>

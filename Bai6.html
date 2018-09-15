@@ -6,39 +6,44 @@
 </head>
 <body>
 <script>
-    //
-    let form = /^[1-9]*x[+,-][0-9]+=[0-9]+$/;
-    let operation = (prompt("nhập phương trình dưới dạng ax + b = c", "").split(" ")).join("");
+    let form = /^-?[0-9]+x[+,-][0-9]+=-?[0-9]+$/;
+    let operation = prompt("nhập phương trình dưới dạng ax + b = c","1x + 1 = 1").split(" ").join("");
     if (form.test(operation)) {
     } else {
         alert("vui lòng nhập đúng dạng");
     }
-    //
-    let operator = checkOperator(operation.split(""));
-    //
-    operation = operation.split("x");
-    let a = operation[0];
-    if (a === "") {
-        a = 1;
-    }
-    a = Number(a);
-    //
-    operation = operation[1].split(operator);
-    operation = operation[1].split("=");
-    //
-    let b = Number(operation[0]);
-    let c = Number(operation[1]);
+    let operandArray=takeNumber(operation.split(""));
+
+    let a = operandArray[0];
+    if (a===0){alert("đây không phải phương trình đúng dạng!")}
+    let b = operandArray[1];
+    let c = operandArray[2];
+
+    alert("x = "+(c-b)/a);
+    document.location.reload();
 
 
-    function checkOperator(arr) {
+
+
+
+
+    function takeNumber(arr) {
+        arr.push("");
+        let numberArr = [];
+        let numberStr = "";
         for (let e of arr) {
-            if ((e === "+") || (e === "-")) {
-                return e;
+            if ((/[0-9]/.test(e)) ||
+                ((e === "-") && (numberStr === ""))) {
+                numberStr +=e;
+            }else {
+                if (numberStr!==""){
+                    numberArr.push(Number(numberStr));
+                    numberStr ="";
+                }
             }
         }
+        return numberArr;
     }
-
-
 </script>
 </body>
 </html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai12</title>
+</head>
+<body>
+<script>
+    let input = (prompt("nhập số tiền, số tháng gửi, lãi suất % ", "0,0,0").split(","));
+    let money = Number(input[0]);
+    let time = Number(input[1]);
+    let laiSuat = Number(input[2]);
+    alert(bank(money,time,laiSuat));
+
+    function bank(money, time, laiSuat) {
+        laiSuat= laiSuat/100;
+        if (time !== 0) {
+            money = bank(money, time - 1, laiSuat*100)*(1+laiSuat);
+            console.log(money);
+        }
+        return money;
+    }
+</script>
+</body>
+</html>
