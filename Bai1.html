@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CtoF</title>
+</head>
+<body>
+<script>
+    let inputTemp = (prompt("xin nhập nhiệt độ c vào",0));
+    if (Number(inputTemp)<0){inputTemp = Number(inputTemp)}
+    if (inputTemp<-273 ){
+        alert("là gì có chỗ nào lạnh thế :)");
+    }else if (typeof (inputTemp) === "string"){
+      alert("xin vui lòng nhập số !")
+    } else {
+        let fTemp =inputTemp*9/5 + 32;
+        alert(fTemp);
+    }
+    document.location.reload();
+
+</script>
+</body>
+</html>

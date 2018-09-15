@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai2</title>
+</head>
+<body>
+<script>
+    let inputM = (prompt("xin nhập số m vào",0));
+    if (Number(inputM)<0){inputM = Number(inputM)}
+    if (inputM< 0 ){
+        alert("mét mà âm thì tôi chịu  :)");
+    }else if (typeof (inputM) === "string"){
+        alert("xin vui lòng nhập số !")
+    } else {
+        let outputF =inputM*3.828;
+        alert(outputF);
+    }
+    document.location.reload();
+</script>
+</body>
+</html>

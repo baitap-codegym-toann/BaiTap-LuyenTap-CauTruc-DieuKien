@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai3-Bai4-Bai5</title>
+</head>
+<body>
+<form>
+    <label for="a">a value</label><input id="a" type="number" value="0">
+    <label for="b">b value</label><input id="b" type="number" value="0">
+    <select id="operation">
+        <option value="a*a">
+            hình vuông (a)
+        </option>
+        <option value="b*a">
+            chữ nhật (a,b)
+        </option>
+        <option value="(b*a)/2">
+            tam giác vuông (a,b)
+        </option>
+    </select>
+</form>
+<script>
+    document.getElementById("a").addEventListener("keydown",function (e) {
+        console.log(e.key);
+        if (e.key === "Enter"){
+            e.preventDefault();
+            document.getElementById("b").focus();
+        }
+    });
+
+
+
+    document.getElementById("b").addEventListener("keydown",function (e) {
+       if (e.key === "Enter"){
+           let a =Number(document.getElementById("a").value);
+           let b =Number(document.getElementById("b").value);
+           let operation =document.getElementById("operation");
+           operation = eval(operation[operation.selectedIndex].value);
+           alert(operation);
+           document.location.reload();
+       }
+    });
+
+</script>
+</body>
+</html>

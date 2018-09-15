@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai6</title>
+</head>
+<body>
+<script>
+    //
+    let form = /^[1-9]*x[+,-][0-9]+=[0-9]+$/;
+    let operation = (prompt("nhập phương trình dưới dạng ax + b = c", "").split(" ")).join("");
+    if (form.test(operation)) {
+    } else {
+        alert("vui lòng nhập đúng dạng");
+    }
+    //
+    let operator = checkOperator(operation.split(""));
+    //
+    operation = operation.split("x");
+    let a = operation[0];
+    if (a === "") {
+        a = 1;
+    }
+    a = Number(a);
+    //
+    operation = operation[1].split(operator);
+    operation = operation[1].split("=");
+    //
+    let b = Number(operation[0]);
+    let c = Number(operation[1]);
+
+
+    function checkOperator(arr) {
+        for (let e of arr) {
+            if ((e === "+") || (e === "-")) {
+                return e;
+            }
+        }
+    }
+
+
+</script>
+</body>
+</html>
