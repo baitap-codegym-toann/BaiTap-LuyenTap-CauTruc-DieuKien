@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai7</title>
+</head>
+<body>
+<script>
+    let isSolveAble = true;
+    let form = /^-?[0-9]+sqr\(x\)[+,-][0-9]+x[+,-][0-9]+=-?[0-9]+$/;
+    let operation = prompt("nhập phương trình dưới dạng ax + b = c", "1sqr(x) + 1x + 1 = 1").split(" ").join("");
+    if (form.test(operation)) {
+    } else {
+        alert("vui lòng nhập đúng dạng");
+        isSolveAble = false;
+    }
+    let operandArray = takeNumber(operation.split(""));
+
+
+    let a = operandArray[0];
+    if (a === 0) {
+        alert("đây không phải phương trình bậc 2!");
+        isSolveAble = false;
+    }
+    let b = operandArray[1];
+    let c = operandArray[2];
+    let d = operandArray[3];
+    if (c === d) {
+        alert("phương trình nghiệm x = " + 0);
+        isSolveAble = false;
+    }
+
+    let delta = (b * b) - (4 * a * c);
+    if (isSolveAble) {
+        if ((delta < 0)) {
+            alert("vô nghiệm")
+        } else if (delta === 0) {
+            alert("phương trình nghiệm kép: x = " + (-1 * b) / (2 * a))
+        } else {
+            alert("phương trình có 2 nghiệm" +
+                " x1 = " + (((-1 * b) - Math.sqrt(delta)) / (2 * a)) +
+                " và x2 = " + (((-1 * b) + Math.sqrt(delta)) / (2 * a)))
+        }
+    }
+
+
+    function takeNumber(arr) {
+        arr.push("");
+        let numberArr = [];
+        let numberStr = "";
+        for (let e of arr) {
+            if ((/[0-9]/.test(e)) ||
+                ((e === "-") && (numberStr === ""))) {
+                numberStr += e;
+            } else {
+                if (numberStr !== "") {
+                    numberArr.push(Number(numberStr));
+                    numberStr = "";
+                }
+            }
+        }
+        return numberArr;
+    }
+</script>
+</body>
+</html>
